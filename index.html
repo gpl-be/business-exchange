@@ -193,49 +193,12 @@ textarea.form-input{resize:vertical}
     <div class="involve-item"><div style="font-size:28px;flex-shrink:0">🤝</div><div><div class="pillar-title">Partner With Us</div><div class="pillar-desc">Professional associations, accounting firms, and industry organizations can co-host events, sponsor refreshments, or help amplify our reach. Partnerships are a great way to connect with Whitman students and faculty.</div></div></div>
     <div class="involve-item"><div style="font-size:28px;flex-shrink:0">🎓</div><div><div class="pillar-title">Student Opportunities</div><div class="pillar-desc">Students can get involved as event coordinators, discussion moderators, or social media contributors. The Business Exchange is also integrated into the Global Corporate Performance course.</div></div></div>
 
-    <!-- FORM -->
+    <!-- GOOGLE FORM -->
     <div class="form-card" id="formCard">
       <h3 style="margin-bottom:6px">Get in Touch</h3>
       <p style="font-size:13px;color:#666;margin-bottom:20px;line-height:1.5">Interested in attending, speaking, partnering, or getting involved? Fill out the form below and we will be in touch.</p>
-      <div id="formFields">
-        <div class="form-row">
-          <div><label class="form-label">Name *</label><input class="form-input" id="fName" placeholder="Your full name"></div>
-          <div><label class="form-label">Email *</label><input class="form-input" id="fEmail" type="email" placeholder="Your email address"></div>
-        </div>
-        <div class="form-group"><label class="form-label">Affiliation *</label><input class="form-input" id="fAffil" placeholder="e.g., Syracuse University, Company Name, Organization"></div>
-        <div class="form-group">
-          <label class="form-label">I am interested in...</label>
-          <div class="pill-group" id="pillGroup">
-            <button class="pill active" onclick="selectType(this)">Attend an Event</button>
-            <button class="pill" onclick="selectType(this)">Speak at an Event</button>
-            <button class="pill" onclick="selectType(this)">Partner With Us</button>
-            <button class="pill" onclick="selectType(this)">Student Opportunity</button>
-            <button class="pill" onclick="selectType(this)">Other</button>
-          </div>
-        </div>
-        <div class="form-group"><label class="form-label">Message *</label><textarea class="form-input" id="fMsg" rows="4" placeholder="Tell us a bit about yourself and how you'd like to get involved..."></textarea></div>
-        <button class="btn" id="submitBtn" onclick="submitForm()" disabled>Submit</button>
-      </div>
-      <div id="formConfirm" style="display:none" class="confirm">
-        <div class="confirm-icon">✅</div>
-        <p style="font-size:16px;font-weight:600;color:var(--navy);margin-bottom:4px">Thank you for your submission!</p>
-        <p style="font-size:14px;color:#666">We have received your inquiry and will be in touch soon.</p>
-        <button class="btn-outline" onclick="resetForm()" style="margin-top:12px">Submit Another</button>
-      </div>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSezTPLLynaIbNuqBcKCbV57SCY-5o7vJaxXUv-IOMn8BjY2iA/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0" style="border:none;border-radius:8px">Loading…</iframe>
     </div>
-
-    <div style="text-align:center">
-      <button class="btn-admin" id="adminToggle" onclick="toggleAdmin()">🔒 Admin</button>
-    </div>
-  </div>
-
-  <!-- SUBMISSIONS (ADMIN) -->
-  <div class="section" id="sec-submissions">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">
-      <h2 style="margin:0">Submissions</h2>
-      <button class="btn" style="padding:8px 16px;font-size:13px" onclick="loadSubmissions()">Refresh</button>
-    </div>
-    <div id="subList"></div>
   </div>
 
 </div>
@@ -244,135 +207,16 @@ textarea.form-input{resize:vertical}
 
 <script>
 let currentSection = 'about';
-let selectedType = 'Attend an Event';
-let adminVisible = false;
 
 function showSection(id) {
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.getElementById('sec-' + id).classList.add('active');
   document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
   const btns = document.querySelectorAll('.nav button');
-  const map = { about: 0, event: 1, topics: 2, involve: 3, submissions: 4 };
+  const map = { about: 0, event: 1, topics: 2, involve: 3 };
   if (btns[map[id]]) btns[map[id]].classList.add('active');
   currentSection = id;
-  if (id === 'submissions') loadSubmissions();
   window.scrollTo(0, 0);
-}
-
-function selectType(el) {
-  document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-  el.classList.add('active');
-  selectedType = el.textContent;
-  checkForm();
-}
-
-function checkForm() {
-  const n = document.getElementById('fName').value.trim();
-  const e = document.getElementById('fEmail').value.trim();
-  const a = document.getElementById('fAffil').value.trim();
-  const m = document.getElementById('fMsg').value.trim();
-  document.getElementById('submitBtn').disabled = !(n && e && a && m);
-}
-
-document.addEventListener('input', checkForm);
-
-function getSubmissions() {
-  try { return JSON.parse(localStorage.getItem('gpl_submissions') || '[]'); }
-  catch { return []; }
-}
-function saveSubmissions(data) {
-  localStorage.setItem('gpl_submissions', JSON.stringify(data));
-}
-
-function submitForm() {
-  const entry = {
-    id: 'sub_' + Date.now(),
-    name: document.getElementById('fName').value.trim(),
-    email: document.getElementById('fEmail').value.trim(),
-    affiliation: document.getElementById('fAffil').value.trim(),
-    type: selectedType,
-    subject: 'Business Exchange [' + selectedType + ']',
-    message: document.getElementById('fMsg').value.trim(),
-    submittedAt: new Date().toISOString()
-  };
-  const subs = getSubmissions();
-  subs.unshift(entry);
-  saveSubmissions(subs);
-  document.getElementById('formFields').style.display = 'none';
-  document.getElementById('formConfirm').style.display = 'block';
-}
-
-function resetForm() {
-  document.getElementById('fName').value = '';
-  document.getElementById('fEmail').value = '';
-  document.getElementById('fAffil').value = '';
-  document.getElementById('fMsg').value = '';
-  document.querySelectorAll('.pill').forEach((p, i) => { p.classList.toggle('active', i === 0); });
-  selectedType = 'Attend an Event';
-  document.getElementById('submitBtn').disabled = true;
-  document.getElementById('formFields').style.display = 'block';
-  document.getElementById('formConfirm').style.display = 'none';
-}
-
-function toggleAdmin() {
-  adminVisible = !adminVisible;
-  const nav = document.getElementById('navInner');
-  const btn = document.getElementById('adminToggle');
-  if (adminVisible) {
-    if (!document.getElementById('navSub')) {
-      const b = document.createElement('button');
-      b.id = 'navSub';
-      b.textContent = 'Submissions';
-      b.onclick = () => showSection('submissions');
-      nav.appendChild(b);
-    }
-    btn.textContent = 'Hide Admin';
-    showSection('submissions');
-  } else {
-    const nb = document.getElementById('navSub');
-    if (nb) nb.remove();
-    btn.textContent = '🔒 Admin';
-    showSection('involve');
-  }
-}
-
-function loadSubmissions() {
-  const subs = getSubmissions();
-  const list = document.getElementById('subList');
-  if (!subs.length) {
-    list.innerHTML = '<div class="card" style="margin-top:0;text-align:center;padding:40px"><p style="color:#999;font-size:15px;margin:0">No submissions yet.</p></div>';
-    return;
-  }
-  list.innerHTML = subs.map(s => `
-    <div class="sub-card">
-      <div class="sub-header">
-        <div>
-          <div class="sub-name">${esc(s.name)}</div>
-          <div class="sub-email">${esc(s.email)}</div>
-          <div class="sub-affil">${esc(s.affiliation || '')}</div>
-        </div>
-        <div style="display:flex;gap:8px;align-items:center">
-          <span class="sub-badge">${esc(s.type)}</span>
-          <button class="sub-del" onclick="deleteSub('${s.id}')" title="Delete">×</button>
-        </div>
-      </div>
-      <div class="sub-subject">${esc(s.subject || 'Business Exchange [' + s.type + ']')}</div>
-      <div class="sub-msg">${esc(s.message)}</div>
-      <div class="sub-date">${new Date(s.submittedAt).toLocaleString()}</div>
-    </div>
-  `).join('');
-}
-
-function deleteSub(id) {
-  const subs = getSubmissions().filter(s => s.id !== id);
-  saveSubmissions(subs);
-  loadSubmissions();
-}
-
-function esc(str) {
-  const d = document.createElement('div');
-  d.textContent = str;
-  return d.innerHTML;
 }
 </script>
 </body>
