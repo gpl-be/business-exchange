@@ -62,36 +62,12 @@ p{font-size:16px;line-height:1.7;color:#333;margin-bottom:16px}
 
 .involve-item{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:24px;margin-bottom:14px;display:flex;gap:16px;align-items:flex-start;border-left:4px solid var(--orange)}
 
+.project-card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:24px;margin-bottom:14px;border-left:4px solid var(--orange)}
+.project-region{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--orange);font-weight:600;margin-bottom:6px}
+.project-title{font-weight:600;font-size:16px;color:var(--navy);margin-bottom:8px}
+.project-desc{font-size:14px;color:#555;line-height:1.6;margin:0}
+
 .form-card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:28px;margin-top:28px;border-top:3px solid var(--orange)}
-.form-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-bottom:14px}
-.form-group{margin-bottom:14px}
-.form-label{font-size:12px;font-weight:600;color:var(--navy);display:block;margin-bottom:4px}
-.form-input{width:100%;padding:10px 12px;border:1px solid #ccc;border-radius:6px;font-size:14px;font-family:inherit}
-.form-input:focus{outline:none;border-color:var(--orange)}
-textarea.form-input{resize:vertical}
-
-.pill-group{display:flex;flex-wrap:wrap;gap:8px}
-.pill{padding:6px 14px;border-radius:20px;border:1px solid #ccc;background:#fff;color:#666;font-size:13px;cursor:pointer;font-weight:400;font-family:inherit;transition:all .2s}
-.pill.active{border:2px solid var(--orange);background:#fff5ee;color:var(--orange);font-weight:600}
-
-.btn{padding:12px 24px;background:var(--orange);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
-.btn:disabled{background:#ccc;cursor:default}
-.btn-outline{padding:8px 20px;background:transparent;border:1px solid var(--orange);color:var(--orange);border-radius:6px;cursor:pointer;font-size:13px;font-family:inherit}
-.btn-admin{padding:8px 16px;background:transparent;border:1px solid #ccc;color:#999;border-radius:6px;cursor:pointer;font-size:12px;font-family:inherit;margin-top:28px}
-
-.sub-card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:24px;margin-bottom:14px;border-left:4px solid var(--orange)}
-.sub-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
-.sub-name{font-weight:600;font-size:16px;color:var(--navy)}
-.sub-email{font-size:13px;color:#888}
-.sub-affil{font-size:13px;color:#666;font-style:italic}
-.sub-subject{font-size:12px;color:var(--navy);font-weight:600;margin-bottom:6px}
-.sub-badge{padding:3px 10px;border-radius:12px;background:#fff5ee;color:var(--orange);font-size:11px;font-weight:600}
-.sub-del{background:transparent;border:none;color:#ccc;cursor:pointer;font-size:16px}
-.sub-msg{font-size:14px;color:#444;line-height:1.6;margin-bottom:8px;white-space:pre-wrap}
-.sub-date{font-size:11px;color:#aaa}
-
-.confirm{text-align:center;padding:24px}
-.confirm-icon{font-size:32px;margin-bottom:12px}
 
 .footer{background:var(--navy);color:#fff;padding:20px 24px;text-align:center;font-size:13px;border-top:3px solid var(--orange)}
 .footer span{opacity:.7}
@@ -100,7 +76,6 @@ textarea.form-input{resize:vertical}
   .header h1{font-size:28px}
   .header{padding:32px 16px 28px}
   .content{padding:24px 16px 48px}
-  .form-row{grid-template-columns:1fr}
   .grid2{grid-template-columns:1fr 1fr}
 }
 </style>
@@ -119,8 +94,8 @@ textarea.form-input{resize:vertical}
   <div class="nav-inner" id="navInner">
     <button class="active" onclick="showSection('about')">About</button>
     <button onclick="showSection('event')">Inaugural Event</button>
-    <button onclick="showSection('topics')">Topics</button>
-    <button onclick="showSection('involve')">Get Involved</button>
+    <button onclick="showSection('projects')">Student Projects</button>
+    <button onclick="window.open('https://syracuseuniversity.qualtrics.com/jfe/form/SV_a5DfSkBO4zcVY4m','_blank')" style="background:var(--orange);color:#fff;font-weight:600;border-radius:4px;margin:6px 8px">Register to Attend Event</button>
   </div>
 </div>
 
@@ -164,6 +139,20 @@ textarea.form-input{resize:vertical}
       <p style="font-size:15px;color:#444">Global supply chains, international reporting standards, cross-border digital platforms, evolving trade policies and tariffs — every local business decision now carries global implications. From the urgent care clinic sourcing medical supplies manufactured overseas to the small manufacturer navigating new tariffs, the line between "local" and "global" has never been thinner.</p>
       <p style="font-size:15px;color:#444;margin:0">Our inaugural GPL Business Exchange features a keynote address exploring how these global dynamics are reshaping the way local businesses in Syracuse and beyond operate, compete, and measure performance. A discussion and audience Q&A will follow in Room 404, with snacks and networking in the 4th floor hallway.</p>
     </div>
+    <div class="card" style="margin-top:0;margin-bottom:20px">
+      <h3 style="margin-bottom:16px">Keynote Speaker</h3>
+      <div style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap">
+        <div style="flex-shrink:0">
+          <img src="emad-rahim.jpg" alt="Dr. Emad Rahim" style="width:160px;height:160px;border-radius:12px;object-fit:cover;border:3px solid #F76900" onerror="this.style.display='none'">
+        </div>
+        <div style="flex:1;min-width:250px">
+          <div style="font-weight:700;font-size:18px;color:#002244;margin-bottom:2px">Dr. Emad Rahim, Ph.D., DM</div>
+          <div style="font-size:13px;color:#F76900;font-weight:600;margin-bottom:10px">Surge Entrepreneurship Manager, INSPYRE Innovation Hub · CenterState CEO</div>
+          <p style="font-size:14px;color:#555;line-height:1.7;margin:0">Dr. Emad Rahim is an award-winning business leader, TEDx speaker, and Fulbright Scholar dedicated to inclusive economic development. With deep roots in Syracuse, New York, he serves as the Inaugural Entrepreneurship Manager for the Cleantech Accelerator and Syracuse Surge Accelerator at the INSPYRE Innovation Hub, supporting the growth of local tech startups across the Central New York region. Balancing practice with academia, Dr. Rahim operates the consulting firm Inclusive 360 LLC, co-founded downtown Syracuse's BCB retail store, and is an Equity Partner at Ztudium (IntelligentHQ.com). He also guides future leaders as the Kotouc Family Endowed Professor and Chair at Bellevue University. His thought leadership has been featured in Forbes, CEO Magazine, Huffington Post, CLO Magazine, and the NY Post.</p>
+        </div>
+      </div>
+    </div>
+
     <div class="card" style="margin-top:0">
       <h3 style="margin-bottom:16px">Event Schedule</h3>
       <div class="schedule-row"><div class="schedule-time">6:00 PM</div><div class="schedule-item">Arrival & Welcome</div></div>
@@ -173,37 +162,70 @@ textarea.form-input{resize:vertical}
     </div>
   </div>
 
-  <!-- TOPICS -->
-  <div class="section" id="sec-topics">
-    <h2 style="margin-bottom:8px">Topic Areas</h2>
-    <p style="font-size:15px;color:#666;margin-bottom:28px;line-height:1.6">The GPL Business Exchange covers five interconnected pillars aligned with the scope of Global Corporate Performance.</p>
-    <div class="pillar"><div class="pillar-icon">📊</div><div><div class="pillar-title">Financial Reporting & Audit</div><div class="pillar-desc">Current developments in IFRS/GAAP, audit quality, fair value measurement, revenue recognition, and reporting transparency.</div></div></div>
-    <div class="pillar"><div class="pillar-icon">🏛️</div><div><div class="pillar-title">Taxation & Policy</div><div class="pillar-desc">Tax reform, international tax frameworks (e.g., OECD Pillar Two), transfer pricing, and the intersection of tax policy with corporate strategy.</div></div></div>
-    <div class="pillar"><div class="pillar-icon">⚖️</div><div><div class="pillar-title">Governance & Ethics</div><div class="pillar-desc">Board effectiveness, executive compensation, ethical leadership, whistleblower protections, and corporate accountability.</div></div></div>
-    <div class="pillar"><div class="pillar-icon">🌱</div><div><div class="pillar-title">ESG & Sustainability</div><div class="pillar-desc">Climate-related disclosure (ISSB, SEC, EU CSRD), ESG assurance, greenwashing, and integrating sustainability into corporate performance.</div></div></div>
-    <div class="pillar"><div class="pillar-icon">🤖</div><div><div class="pillar-title">Technology & AI in Business</div><div class="pillar-desc">AI-driven audit and analytics, blockchain in financial reporting, cybersecurity governance, and emerging technology's impact on performance measurement.</div></div></div>
-  </div>
+  <!-- STUDENT PROJECTS -->
+  <div class="section" id="sec-projects">
+    <h2>Student Experiential Projects Showcase</h2>
+    <p>The GPL Business Exchange is a conceptual initiative of the <strong>Global Corporate Performance</strong> course (ACC 400/600) at the Whitman School of Management, Syracuse University. The course examines how global dynamics — from international reporting standards and trade policy to supply chain disruptions and emerging technology — shape the way organizations measure, manage, and communicate performance. <strong>Recognizing that local is global</strong>, the course and the Business Exchange explore how the forces shaping businesses abroad are equally present in our own backyard. The Business Exchange extends that inquiry beyond the classroom and into the community.</p>
+    <p>As part of the course, students work in teams on experiential projects that tackle real-world business challenges with international partners and organizations. These projects place students at the intersection of global dynamics and local impact — requiring them to navigate cross-cultural contexts, apply financial and strategic frameworks, and deliver actionable insights to real stakeholders.</p>
+    <p style="font-size:15px;color:#666;margin-bottom:28px">Drawn from student weekly reflections and engagement with their partners.</p>
 
-  <!-- GET INVOLVED -->
-  <div class="section" id="sec-involve">
-    <h2>Get Involved</h2>
-    <p style="margin-bottom:28px">The GPL Business Exchange thrives on participation from across the Syracuse community. Here is how you can be part of it.</p>
-    <div class="involve-item"><div style="font-size:28px;flex-shrink:0">🎟️</div><div><div class="pillar-title">Attend an Event</div><div class="pillar-desc">All GPL Business Exchange events are free and open to the public. Join us for insightful discussions, networking, and refreshments. No registration required — just show up.</div></div></div>
-    <div class="involve-item"><div style="font-size:28px;flex-shrink:0">🎤</div><div><div class="pillar-title">Speak at an Event</div><div class="pillar-desc">Are you a business leader, practitioner, or researcher with a perspective on how global dynamics affect local operations? We would love to hear from you. Contact us to explore speaking opportunities.</div></div></div>
-    <div class="involve-item"><div style="font-size:28px;flex-shrink:0">🤝</div><div><div class="pillar-title">Partner With Us</div><div class="pillar-desc">Professional associations, accounting firms, and industry organizations can co-host events, sponsor refreshments, or help amplify our reach. Partnerships are a great way to connect with Whitman students and faculty.</div></div></div>
-    <div class="involve-item"><div style="font-size:28px;flex-shrink:0">🎓</div><div><div class="pillar-title">Student Opportunities</div><div class="pillar-desc">Students can get involved as event coordinators, discussion moderators, or social media contributors. The Business Exchange is also integrated into the Global Corporate Performance course.</div></div></div>
+    <div class="project-card">
+      <div class="project-region">🌏 Northern Australia</div>
+      <div class="project-title">Financial Performance Metrics and Indigenous Cultural Values</div>
+      <p class="project-desc">A student team is grappling with how to apply and advocate for financial performance metrics in a context where strong indigenous cultural values shape how communities define success. The project challenges students to think critically about the assumptions embedded in Western accounting frameworks and to develop measurement approaches that respect and integrate local cultural perspectives.</p>
+    </div>
 
-    <!-- GOOGLE FORM -->
-    <div class="form-card" id="formCard">
-      <h3 style="margin-bottom:6px">Get in Touch</h3>
-      <p style="font-size:13px;color:#666;margin-bottom:20px;line-height:1.5">Interested in attending, speaking, partnering, or getting involved? Fill out the form below and we will be in touch.</p>
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSezTPLLynaIbNuqBcKCbV57SCY-5o7vJaxXUv-IOMn8BjY2iA/viewform?embedded=true" width="100%" height="900" frameborder="0" marginheight="0" marginwidth="0" style="border:none;border-radius:8px">Loading…</iframe>
+    <div class="project-card">
+      <div class="project-region">☕ Southeast Asia</div>
+      <div class="project-title">Coffee Industry Analysis and Entrepreneurship Framework</div>
+      <p class="project-desc">This team is studying the coffee industry in a Southeast Asian country and working to build a framework for promoting coffee entrepreneurship. Students are examining global commodity markets, local production constraints, and the role of trade policy in shaping opportunities for small-scale producers — connecting global supply chain dynamics to local economic development.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-region">🚗 South Africa</div>
+      <div class="project-title">Unit Economics and Pricing Strategy for a Mobility-as-a-Service Business</div>
+      <p class="project-desc">A team is exploring unit economics and pricing strategy for a South African mobility-as-a-service startup. The project requires students to analyze cost structures, revenue models, and competitive dynamics in an emerging market where infrastructure, regulation, and consumer behavior differ significantly from developed markets.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-region">🌍 Pan-African</div>
+      <div class="project-title">Afreximbank Case Study</div>
+      <p class="project-desc">A student team is collaborating with the African Export-Import Bank (Afreximbank) on a case writing project. Working directly with bank representatives, students are developing a publishable case study that examines the institution's role in facilitating trade and investment across the African continent — offering a firsthand look at how global financial institutions operate at the intersection of policy, trade, and economic development.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-region">🌍 Pan-African</div>
+      <div class="project-title">Harambe Entrepreneur Alliance</div>
+      <p class="project-desc">A student team is working with the Harambe Entrepreneur Alliance, a network of young African leaders driving innovation and enterprise across the continent. The project explores how African entrepreneurs navigate global market dynamics, cross-border collaboration, and the challenges of building scalable ventures in diverse economic environments — connecting themes of inclusive growth, diaspora engagement, and global entrepreneurship.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-region">🌿 Nigeria</div>
+      <div class="project-title">Agritech, Climate, and Supply Chain Innovation</div>
+      <p class="project-desc">This team is examining a Nigerian agritech and climate-tech startup that uses proprietary technology to process agricultural products for smallholder farmers and converts waste into biochar for carbon removal. Students are analyzing how the company's model integrates global climate goals, supply chain technology, and local agricultural economics — a case study in how innovation at the intersection of food systems, sustainability, and emerging markets can create shared prosperity.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="project-region">🚢 Denmark / Global</div>
+      <div class="project-title">Global Logistics and Trade</div>
+      <p class="project-desc">A student team is engaging with a major global integrated logistics and shipping company. The project examines how global trade infrastructure, geopolitical disruptions, supply chain restructuring, and decarbonization pressures are reshaping the logistics industry — offering students a window into how a multinational corporation manages performance across complex, interconnected global operations.</p>
+    </div>
+
+    <div class="card card-top" style="margin-top:28px">
+      <h3>Why Experiential Projects?</h3>
+      <p style="font-size:15px;color:#444;margin:0">These projects are designed to push students beyond the classroom and into the complexities of global business. By working with real organizations on real challenges, students develop the analytical, cross-cultural, and professional skills needed to understand how global forces shape corporate performance — the same theme at the heart of the GPL Business Exchange.</p>
     </div>
   </div>
 
+
 </div>
 
-<div class="footer"><span>© 2026 Global Performance Lab · Whitman School of Management · Syracuse University</span></div>
+<div class="footer">
+  <div style="max-width:800px;margin:0 auto;padding-bottom:8px">
+    <div style="font-size:12px;opacity:.85;margin-bottom:6px">Sponsored by the Joseph I. Lubin School of Accounting and the Whitman Curriculum & Learning Innovation Grant</div>
+    <div style="font-size:12px;opacity:.85;margin-bottom:12px">With thanks to our community partner <a href="https://www.cuseculture.com/welcome" target="_blank" style="color:#F76900">Cuse Culture Media Group</a></div>
+  </div>
+  <span style="opacity:.7">© 2026 Global Performance Lab · Whitman School of Management · Syracuse University</span></div>
 
 <script>
 let currentSection = 'about';
@@ -213,7 +235,7 @@ function showSection(id) {
   document.getElementById('sec-' + id).classList.add('active');
   document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
   const btns = document.querySelectorAll('.nav button');
-  const map = { about: 0, event: 1, topics: 2, involve: 3 };
+  const map = { about: 0, event: 1, projects: 2 };
   if (btns[map[id]]) btns[map[id]].classList.add('active');
   currentSection = id;
   window.scrollTo(0, 0);
